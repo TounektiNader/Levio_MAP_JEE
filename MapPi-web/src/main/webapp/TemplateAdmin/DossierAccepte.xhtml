@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/bootstrap/css/bootstrap.min.css"
+		rel="stylesheet" />
+
+	<link
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/morrisjs/morris.css"
+		rel="stylesheet" />
+
+	<link
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/css/style.css"
+		rel="stylesheet" />
+
+	<link
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/css/colors/blue.css"
+		id="theme" rel="stylesheet" />
+
+	<link rel="stylesheet"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/bootstrap.css" />
+	<link rel="stylesheet"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/jquery.tagsinput.css" />
+	<link rel="stylesheet" type="text/css"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/owl.carousel.css" />
+	<link rel="stylesheet"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/styles.css" />
+	<link rel="stylesheet"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/responsive.css" />
+
+	<script type="text/javascript">
+    function handleDrop(event, ui) {
+        var droppedCar = ui.draggable;
+ 
+        droppedCar.fadeOut('fast');
+    }
+</script>
+</h:head>
+<h:body>
+	<div id="wrapper">
+		<ui:insert name="Hearder"></ui:insert>
+		<!-- 	<ui:include src="../TemplateAdmin/Hearder.xhtml" /> -->
+
+
+		<ui:insert name="Menu"></ui:insert>
+		<ui:include src="../TemplateAdmin/Menu.xhtml" />
+	</div>
+	<div class="page-wrapper">
+
+
+		<h:form id="carForm">
+			<p:fieldset id="availableCarsField" legend="Folder Accepted">
+				<p:dataGrid id="availableCars" var="car"
+					value="#{dossieraccepteBean.dossiers}" columns="3">
+					<p:panel id="pnl" header="#{car.firstName} #{car.lastName}"
+						style="text-align:center">
+						<h:panelGrid columns="1" style="width:100%">
+							<img class="img-responsive center-block"
+								src="http://localhost:18080/MapPi-web/Attachment/#{car.image}"
+								alt="Image" style="height: 250px; width: 250px;" />
+						</h:panelGrid>
+					</p:panel>
+
+					<p:draggable for="pnl" revert="true" handle=".ui-panel-titlebar"
+						stack=".ui-panel" />
+				</p:dataGrid>
+			</p:fieldset>
+
+			<p:fieldset id="selectedCars" legend="Selected Folder"
+				style="margin-top:20px">
+				<p:outputPanel id="dropArea">
+					<h:outputText value="Drop here ... "
+						rendered="#{empty dossieraccepteBean.droppedCars}"
+						style="font-size:24px;" />
+					<p:dataTable id="selectedCarsTable" var="car"
+						value="#{dossieraccepteBean.droppedCars}"
+						rendered="#{not empty dossieraccepteBean.droppedCars}">
+						<p:column headerText="Id Folder">
+							<h:outputText value="#{car.id}" />
+						</p:column>
+
+						<p:column headerText="Email Candidature">
+							<h:outputText value="#{car.email}" />
+						</p:column>
+
+						<p:column headerText="Full Name">
+							<h:outputText value="#{car.firstName} #{car.lastName}" />
+						</p:column>
+
+						<p:column headerText="Status Folder">
+							<h:outputText value="#{car.etat}" 	style="font-weight:bold;color:red" />
+						</p:column>
+
+						<p:column style="width:32px">
+							<p:commandButton update=":carForm:display"
+								oncomplete="PF('carDialog').show()" icon="pi pi-search">
+								<f:setPropertyActionListener value="#{car}"
+									target="#{dossieraccepteBean.selectedCar}" />
+							</p:commandButton>
+						</p:column>
+					</p:dataTable>
+				</p:outputPanel>
+			</p:fieldset>
+
+			<p:droppable for="selectedCars" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="availableCars"
+				onDrop="handleDrop">
+				<p:ajax listener="#{dossieraccepteBean.onCarDrop}"
+					update="dropArea availableCars" />
+			</p:droppable>
+
+			<p:dialog header="Condidature Detail" widgetVar="carDialog" resizable="false"
+				draggable="false" showEffect="fade" hideEffect="fade" modal="true">
+
+				<p:outputPanel id="display">
+					<h:panelGrid columns="2" cellpadding="5"
+						rendered="#{not empty dossieraccepteBean.selectedCar}">
+						<f:facet name="header">
+							<img class="img-responsive center-block"
+								src="http://localhost:18080/MapPi-web/Attachment/#{dossieraccepteBean.selectedCar.image}"
+								alt="Image" style="height: 250px; width: 250px;" />
+						</f:facet>
+
+						<h:outputText value="Email" />
+						<h:outputText value="#{dossieraccepteBean.selectedCar.email}"
+							style="font-weight:bold" />
+
+						<h:outputText value="Address:" />
+						<h:outputText value="#{dossieraccepteBean.selectedCar.address}"
+							style="font-weight:bold" />
+
+						<h:outputText value="Phone Number" />
+						<h:outputText value="#{dossieraccepteBean.selectedCar.phone}"
+							style="font-weight:bold" />
+
+						<h:outputText value="Country:" />
+						<h:outputText value="#{dossieraccepteBean.selectedCar.pays}"
+							style="font-weight:bold" />
+					</h:panelGrid>
+				</p:outputPanel>
+			</p:dialog>
+		</h:form>
+
+
+
+	</div>
+</h:body>
+</html>

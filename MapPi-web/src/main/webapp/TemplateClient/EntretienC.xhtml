@@ -1,0 +1,195 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/TemplateClient/TemplateC.xhtml">
+
+	<ui:define name="title">
+		<title>Entretien</title>
+	</ui:define>
+
+	<ui:define name="temp">
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/bootstrap.min.css" />
+
+		<!-- JQUERY MENU -->
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/mega_menu.min.css" />
+
+		<!-- ANIMATION -->
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/animate.min.css" />
+
+		<!-- OWl  CAROUSEL-->
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/owl.carousel.css" />
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/owl.style.css" />
+
+		<!-- TEMPLATE CORE CSS -->
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/style.css" />
+
+		<!-- FOR THIS PAGE ONLY -->
+		<link
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/select2.min.css"
+			rel="stylesheet" />
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/jquery.tagsinput.min.css" />
+
+		<!-- FONT AWESOME -->
+		<link rel="stylesheet" type="text/css"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/font-awesome.min.css" />
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/et-line-fonts.css"
+			type="text/css" />
+
+		<!-- Google Fonts -->
+		<link
+			href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900,300"
+			rel="stylesheet" type="text/css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700"
+			rel="stylesheet" type="text/css" />
+		<!-- JavaScripts -->
+
+		<script
+			src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/modernizr.js"></script>
+		<link rel="stylesheet" type="text/css"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentV/stylesheets/style.css" />
+		<link rel="stylesheet" type="text/css"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentV/fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<link rel="stylesheet" type="text/css"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentV/css/normalize.css" />
+		<style>
+#vid-box {
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+
+#vid-box video {
+	width: 47%;
+}
+</style>
+
+	</ui:define>
+	<ui:define name="content">
+		<div id="page-content">
+
+			<div class="index-page-search-content">
+				<div id="owl-demo" class="owl-carousel owl-theme">
+
+					<div class="item"
+						style="background: url('img/home-bg.jpg') center center no-repeat; background-size: cover;"></div>
+					<div class="item"
+						style="background: url('img/home-bg2.jpg') center center no-repeat; background-size: cover;"></div>
+					<div class="item"
+						style="background: url('img/home-bg3.jpg') center center no-repeat; background-size: cover;"></div>
+
+
+				</div>
+				<div class="container" style="background: rgba(255,255,255,0);">
+					<div class="search-holder">
+						<h1>Levio</h1>
+						<h2>Interview</h2>
+						<div class="bodyDiv">
+
+							<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+							<!-- My Phone Number & Dial Areas -->
+							<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+							<div id="vid-box" class="video2"></div>
+							<div id="vid-thumb"></div>
+
+							<!--
+	<form name="loginForm" id="login" action="#" onsubmit="return login(this);">
+	    <input type="text" name="username" id="username" placeholder="Pick a username!" />
+	    <input type="submit" name="login_submit" value="Log In">
+	</form>
+-->
+							<form name="loginForm" id="login" action="#"
+								onsubmit="return errWrap(login,this);">
+								<span class="input input--nao"> <input
+									class="input__field input__field--nao" type="text"
+									name="username" id="username" placeholder="Enter A Username" />
+									<label class="input__label input__label--nao" for="username">
+										<span class="input__label-content input__label-content--nao">
+									</span>
+								</label> <svg class="graphic graphic--nao" width="300%" height="100%"
+										viewBox="0 0 1200 60" preserveAspectRatio="none">
+                    <path
+											d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+                </svg>
+								</span>
+
+								<button class="cbutton cbutton--effect-radomir" type="submit"
+									name="login_submit" value="Log In"
+									style="margin-top: 40px; margin-left: -10px">
+									<i class="cbutton__icon fa fa-fw fa fa-sign-in"></i>
+								</button>
+							</form>
+
+							<!--
+	<form name="callForm" id="call" action="#" onsubmit="return makeCall(this);">
+		<input type="text" name="number" placeholder="Enter user to dial!" />
+		<input type="submit" value="Call"/>
+	</form>
+-->
+
+
+							<form name="callForm" id="call" action="#"
+								onsubmit="return errWrap(makeCall,this);">
+								<span class="input input--nao"> <input
+									class="input__field input__field--nao" type="text"
+									name="number" id="call" placeholder="Enter User To Call!" /> <label
+									class="input__label input__label--nao" for="number"> <span
+										class="input__label-content input__label-content--nao">
+									</span>
+								</label> <svg class="graphic graphic--nao" width="300%" height="100%"
+										viewBox="0 0 1200 60" preserveAspectRatio="none">
+				    <path
+											d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0" />
+				</svg>
+								</span>
+								<button class="cbutton cbutton--effect-radomir md-trigger"
+									type="submit" value="Call"
+									style="margin-top: 40px; margin-left: -10px"
+									data-modal="modal-13">
+									<i class="cbutton__icon fa fa-fw fa fa fa-phone-square"></i>
+								</button>
+							</form>
+
+							<!-- 	<div id="inCall" class="ptext">
+				<button id="end" onclick="end()">End</button>
+				<button id="mute" onclick="mute()">Mute</button>
+				<button id="pause" onclick="pause()">Pause</button>
+			</div>
+ -->
+							<!-- 	<div id="logs" class="ptext"></div>
+
+			<p class="ptext">
+				<b>To Use:</b>
+			</p>
+			<p class="ptext">Type a username and click Log in. If input turns
+				green you are ready to receive/place a call.</p>
+			<p class="ptext">In a separate browser window, log in with a
+				different username, and place a call to the first.</p> -->
+
+
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- end .container -->
+
+
+		</div>
+
+	</ui:define>
+</ui:composition>

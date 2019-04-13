@@ -1,0 +1,37 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<link href="../assests/css/bootstrap.min.css" rel="stylesheet"></link>
+	<link href="../assests/font-awesome/css/font-awesome.css" rel="stylesheet"></link>
+	<link href="../assests/css/sb-admin.css" rel="stylesheet"></link>
+</h:head>
+
+<h:body>
+
+<div id="wrapper"/>
+ <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+     <ui:include src="../facelets/header.xhtml"></ui:include>
+     <ui:include src="../facelets/Menu.xhtml"></ui:include>
+   </nav>
+   
+   <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                <br/>
+                  <ui:insert name="content"></ui:insert>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+
+<!--     <script src="../assests/js/jquery-1.10.2.js"></script> -->
+    <script src="../assests/js/bootstrap.min.js"></script>
+    <script src="../assests/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../assests/js/sb-admin.js"></script>
+    
+</h:body>
+</html>

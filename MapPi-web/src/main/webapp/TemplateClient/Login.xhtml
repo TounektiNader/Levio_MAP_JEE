@@ -1,0 +1,66 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/TemplateClient/TemplateC.xhtml">
+
+	<ui:define name="title">
+		<title>Login</title>
+	</ui:define>
+
+	<ui:define name="content">
+		<div class="process-content">
+			<div class="container">
+
+
+				<h:form style="width: 550px;margin-left: 250px;">
+					<p:panel id="panel" header="Sign In">
+
+						<p:messages id="msgs" />
+						<h:panelGrid columns="3" cellpadding="5"
+							style="margin-bottom: 20px;">
+
+
+							<p:outputLabel for="firstname" value="Login" />
+							<p:inputText id="firstname" value="#{loginBean.login}"
+								required="true" label="Firstname" type="text">
+								<f:validateLength minimum="2" />
+							</p:inputText>
+							<p:message for="firstname" display="icon" />
+
+							<p:outputLabel for="lastname" value="Password:" />
+							<p:inputText id="lastname" value="#{loginBean.password}"
+								label="Lastname" required="true" type="password">
+								<f:validateLength minimum="2" />
+								<p:ajax update="msgLastname" event="keyup" />
+							</p:inputText>
+							<p:message for="lastname" id="msgLastname" display="icon" />
+
+
+
+						</h:panelGrid>
+
+						<div class="col-md-6" style="left: 20px;">
+							<p style="font-size: 15px; color: white;">
+								Connect As A Minister? <a
+									style="font-size: 20px; color: #346abb;"
+									href="http://localhost:18080/MapPi-web/TemplateClient/MinistereLogin.jsf">Sign
+									In</a>
+							</p>
+						</div>
+						<p:commandButton value="Login" update="panel"
+							action="#{loginBean.doLogin()}" icon="pi pi-check"
+							style="left: 150px;" />
+					</p:panel>
+
+				</h:form>
+
+			</div>
+
+		</div>
+
+
+	</ui:define>
+</ui:composition>

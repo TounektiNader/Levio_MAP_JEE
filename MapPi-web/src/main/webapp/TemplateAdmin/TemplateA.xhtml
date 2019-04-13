@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui">
+       
+       
+       
+       <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <meta name="description" content=""/>
+    
+    <meta name="author" content=""/>
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:18080/MapPi-web/TemplateAdmin/images/favicon.png"/>
+    
+  <ui:insert name="title"></ui:insert>
+    
+    <link href="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    
+    <link href="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/morrisjs/morris.css" rel="stylesheet"/>
+    
+    <link href="http://localhost:18080/MapPi-web/TemplateAdmin/css/style.css" rel="stylesheet"/>
+    
+    <link href="http://localhost:18080/MapPi-web/TemplateAdmin/css/colors/blue.css" id="theme" rel="stylesheet"/>
+    
+     <link rel="stylesheet" href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/bootstrap.css"/>
+    <link rel="stylesheet" href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/jquery.tagsinput.css" />
+    <link rel="stylesheet" type="text/css" href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/owl.carousel.css" />
+    <link rel="stylesheet" href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/styles.css"/>
+    <link rel="stylesheet" href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/responsive.css"/>
+
+
+  <ui:insert name="temp"></ui:insert>
+</head>
+
+
+
+<h:body>
+
+	    <div id="wrapper">
+	     <ui:insert name="Hearder"></ui:insert>
+	    <ui:include src="../TemplateAdmin/Hearder.xhtml" />
+	    
+	    <ui:insert name="Menu"></ui:insert>
+	    <ui:include src="../TemplateAdmin/Menu.xhtml" />
+	    
+	 
+	    <div class="page-wrapper">
+		<ui:insert name="content"></ui:insert>
+		 <ui:insert name="Footer"></ui:insert>
+	     <ui:include src="../TemplateAdmin/Footer.xhtml" />
+	
+		  </div>
+	  
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		     <script src="http://localhost:18080/MapPi-web/TemplateAdmin/Scripts/jquery-1.10.2.min.js"></script>
+                        <script>
+                            $(document).ready(function () {
+
+                                function Contains(text_one, text_two) {
+                                    if (text_one.indexOf(text_two) != -1)
+                                        return true;
+                                }
+
+
+                                $("#Search").keyup(function () {
+
+                                    var searchText = $("#Search").val().toLowerCase();
+                                    $(".Search").each(function () {
+
+                                        if (!Contains($(this).text().toLowerCase(), searchText))
+                                        { $(this).hide(); }
+                                        else {
+
+                                            $(this).show();
+                                        }
+
+                                    });
+
+                                });
+
+                            });
+                        </script>
+
+
+                        <script src="http://localhost:18080/MapPi-web/TemplateAdmin/Content/js/jquery-3.1.1.min.js"></script>
+                        <script src="http://localhost:18080/MapPi-web/TemplateAdmin/Content/js/jquery.ba-outside-events.min.js"></script>
+
+                        <script src="http://localhost:18080/MapPi-web/TemplateAdmin/Content/js/bootstrap.js"></script>
+                        <script src="http://localhost:18080/MapPi-web/TemplateAdmin/Content/js/jquery.inview.min.js"></script>
+                        <script src="http://localhost:18080/MapPi-web/TemplateAdmin/Content/js/jquery.responsive-tabs.js"></script>
+                        <script src="http://localhost:18080/MapPi-web/TemplateAdmin/Content/js/jquery.tagsinput.min.js"></script>
+                        <script src="http://localhost:18080/MapPi-web/TemplateAdmin/Content/js/owl.carousel.html"></script>
+                        <script src="http://localhost:18080/MapPi-web/TemplateAdmin/Content/js/jquery-ui.js"></script>
+                        <script src="http://localhost:18080/MapPi-web/TemplateAdmin/Content/js/scripts.js"></script>
+
+
+	<script src="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/jquery/jquery.min.js"></script>
+    <script src="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://localhost:18080/MapPi-web/TemplateAdmin/js/jquery.slimscroll.js"></script>
+    <script src="http://localhost:18080/MapPi-web/TemplateAdmin/js/waves.js"></script>
+    <script src="http://localhost:18080/MapPi-web/TemplateAdmin/js/sidebarmenu.js"></script>
+    <script src="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="http://localhost:18080/MapPi-web/TemplateAdmin/js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <script src="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/raphael/raphael-min.js"></script>
+    <script src="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/morrisjs/morris.min.js"></script>
+    <script src="http://localhost:18080/MapPi-web/TemplateAdmin/js/dashboard1.js"></script>
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <script src="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+		
+		
+	<ui:insert name="scrip"></ui:insert>
+		
+	</h:body>
+	
+
+
+</html>

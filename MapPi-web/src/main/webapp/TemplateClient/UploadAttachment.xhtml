@@ -1,0 +1,362 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/TemplateClient/TemplateC.xhtml">
+
+	<ui:define name="title">
+		<title>Ajout Dossier</title>
+	</ui:define>
+
+	<ui:define name="temp">
+
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/bootstrap.min.css" />
+
+		<!-- JQUERY MENU -->
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/mega_menu.min.css" />
+
+		<!-- ANIMATION -->
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/animate.min.css" />
+
+		<!-- OWl  CAROUSEL-->
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/owl.carousel.css" />
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/owl.style.css" />
+
+		<!-- TEMPLATE CORE CSS -->
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/style.css" />
+
+		<!-- FOR THIS PAGE ONLY -->
+		<link
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/select2.min.css"
+			rel="stylesheet" />
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/jquery.tagsinput.min.css" />
+
+		<!-- FONT AWESOME -->
+		<link rel="stylesheet" type="text/css"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/font-awesome.min.css" />
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/et-line-fonts.css"
+			type="text/css" />
+
+		<!-- Google Fonts -->
+		<link
+			href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900,300"
+			rel="stylesheet" type="text/css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700"
+			rel="stylesheet" type="text/css" />
+		<!-- JavaScripts -->
+
+		<script
+			src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/modernizr.js"></script>
+
+		<style type="text/css">
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #333;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #2799ff;
+}
+
+.countdown {
+	display: flex;
+}
+
+.countdown .day, .countdown .hour, .countdown .min, .countdown .sec {
+	color: #2799ff;
+	padding: 1vw 3vw;
+	text-align: center;
+}
+
+.countdown .day .num, .countdown .hour .num, .countdown .min .num,
+	.countdown .sec .num {
+	display: block;
+	font-size: 8vw;
+	line-height: 1em;
+}
+
+.countdown .day .word, .countdown .hour .word, .countdown .min .word,
+	.countdown .sec .word {
+	display: block;
+	font-size: 2vw;
+	color: #8a99ab;
+}
+</style>
+	</ui:define>
+
+	<ui:define name="content">
+
+
+
+		<section class="dashboard-body">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12 nopadding">
+						<div class="col-md-4 col-sm-4 col-xs-12">
+							<div class="panel">
+								<div class="dashboard-logo-sidebar">
+									<img class="img-responsive center-block"
+										src="http://localhost:18080/MapPi-web/Attachment/#{consultBean.dossier.image}"
+										alt="Image" />
+								</div>
+								<div class="card-body">
+									<h4>#{loginBean.userConnecte.firstname}
+										#{loginBean.userConnecte.lastname}</h4>
+									<span class="title">#{loginBean.userConnecte.email}</span>
+
+								</div>
+							</div>
+							<div class="profile-nav">
+								<div class="panel">
+									<ul class="nav nav-pills nav-stacked">
+										<li ><a href="ConsultDossier.jsf"> <i
+												class="fa fa-user"></i> Profile Folder
+										</a></li>
+										<li class="active"><a href="UploadAttachment.jsf"> <i
+												class="fa fa-edit"></i> List Attachments
+										</a></li>
+										<li><a href="ConsultDossier.jsf"> <i
+												class="fa fa-file-o"></i>Folder Immigration Steps
+										</a></li>
+										<li><a href="FolderSteps.jsf"> <i
+												class="fa  fa-list-ul"></i> Job Request Steps
+										</a></li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<div class="heading-inner first-heading">
+								<p class="title">My Attachment</p>
+								<a href="javascript:void(0)"> <span
+									class="pull-right add-button btn-default" data-toggle="modal"
+									data-target=".add-resume-modal"> Add New Attachment</span></a>
+
+
+							</div>
+							<div class="resume-list">
+								<div class="table-responsive">
+									<table class="table  table-striped">
+										<thead class="thead-inverse">
+											<tr>
+												<th>ID</th>
+												<th>Type Attachment</th>
+												<th>Display</th>
+												<th>Remove</th>
+											</tr>
+										</thead>
+										<tbody>
+											<ui:repeat value="#{uploaBean.lists}" var="item">
+
+												<tr>
+													<th scope="row">#{item.id}</th>
+													<td>
+														<h5>#{item.name}</h5>
+													</td>
+													<td><h:form>
+
+															<h:commandButton
+																action="#{uploaBean.displayPdf(item.path)}"
+																value="Display" class="btn btn-outline btn-primary" />
+
+														</h:form></td>
+
+
+
+
+
+													<td><h:form>
+															<h:commandButton
+																action="#{uploaBean.deleteAttachment(item.id)}"
+																value="Delete" class="btn btn-outline btn btn-danger" />
+														</h:form></td>
+
+												</tr>
+											</ui:repeat>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+
+
+		</section>
+
+		<div class="modal add-resume-modal" tabindex="-1" role="dialog"
+			aria-labelledby="">
+			<div class="modal-dialog modal-md" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">X</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Add New Attachment
+						</h4>
+					</div>
+
+					<div class="modal-body">
+
+						<h:form enctype="multipart/form-data">
+
+							<div class="row clearfix">
+
+								<div class="column col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+
+										<h:inputText type="text" placeholder="Type attachment"
+											class="form-control" value="#{uploaBean.type}"></h:inputText>
+									</div>
+
+								</div>
+								<div class="column col-md-12 col-sm-12 col-xs-12">
+									<div class="form-group">
+										<div class="input-group image-preview form-group">
+											<input type="text"
+												class="form-control image-preview-filename"
+												disabled="disabled" /> <span class="input-group-btn">
+												<button type="button"
+													class="btn btn-default image-preview-clear"
+													style="display: none;">
+													<span class="glyphicon glyphicon-remove"></span> Clear
+												</button>
+												<div class="btn btn-default image-preview-input">
+													<span class="glyphicon glyphicon-folder-open"></span> <span
+														class="image-preview-input-title">Browse</span>
+													<h:inputFile value="#{uploaBean.file}">
+														<f:ajax listener="#{uploaBean.uploadFile()}" />
+													</h:inputFile>
+
+												</div>
+											</span>
+										</div>
+										<p>Only pdf and Png doc files are accepted</p>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+
+								<h:commandButton action="#{uploaBean.addAttachment()}"
+									value="Apply Now" icon="pi pi-check" style="left: 350px;"
+									class="btn btn-default pull-right">
+								</h:commandButton>
+							</div>
+
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<ui:define name="scrip">
+
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/jquery-3.1.1.min.js"></script>
+
+			<!-- JAVASCRIPT JS  -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/jquery-migrate-1.2.1.min.js"></script>
+
+			<!-- BOOTSTRAP CORE JS -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/bootstrap.min.js"></script>
+
+			<!-- JQUERY SELECT -->
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/select2.min.js"
+				type="text/javascript"></script>
+
+			<!-- MEGA MENU -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/mega_menu.min.js"></script>
+
+
+
+			<!-- JQUERY COUNTERUP -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/counterup.js"></script>
+
+			<!-- JQUERY WAYPOINT -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/waypoints.min.js"></script>
+
+			<!-- JQUERY REVEAL -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/footer-reveal.min.js"></script>
+
+			<!-- Owl Carousel -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/owl-carousel.js"></script>
+
+			<!-- CORE JS -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/custom.js"></script>
+
+			<!-- FOR THIS PAGE ONLY -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/jquery.tagsinput.min.js"></script>
+			<script type="text/javascript">
+            $(".questions-category").select2({
+                placeholder: "Select Post Category",
+                allowClear: true,
+                maximumSelectionLength: 3,
+                /*width: "50%",*/
+            });
+            $('#tags').tagsInput({
+                width: 'auto'
+            });
+    </script>
+			<!-- CK-EDITOR -->
+			<script src="../../../cdn.ckeditor.com/4.5.10/standard/ckeditor.js"></script>
+			<script type="text/javascript">
+            CKEDITOR.replace('ckeditor.html');
+    </script>
+			<!-- WIZARD -->
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/jquery-wizard.min.js"
+				type="text/javascript"></script>
+			<script>
+            $('#exampleBasic').wizard({
+                onFinish: function() {
+                    alert('finish');
+                }
+            });
+    </script>
+
+			<script type="text/javascript">
+var pdf = new PDFObject({
+	  url: "https://mozilla.github.io/pdf.js/web/viewer.html",
+	  id: "pdfRendered",
+	  pdfOpenParams: {
+	    view: "FitH"
+	  }
+	}).embed("pdfRenderer");
+</script>
+
+		</ui:define>
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,123 @@
+
+<aside class="left-sidebar">
+	<!-- Sidebar scroll-->
+	<div class="scroll-sidebar">
+		<!-- User profile -->
+		<div class="user-profile">
+			<!-- User profile image -->
+			<div class="profile-img">
+				<img
+					src="http://localhost:18080/MapPi-web/TemplateAdmin/images/users/5.jpg"
+					alt="user" />
+				<!-- this is blinking heartbit-->
+				<div class="notify setpos">
+					<span class="heartbit"></span> <span class="point"></span>
+				</div>
+			</div>
+			<!-- User profile text-->
+			<div class="profile-text">
+				<h6>#{loginBean.userConnecte.email}</h6>
+				<a href="https://mail.google.com" class="" data-toggle="tooltip"
+					title="Email"><i class="mdi mdi-gmail"></i></a> <a
+					href="#{loginBean.dologout()}" class="" data-toggle="tooltip"
+					title="Logout"><i class="mdi mdi-power"></i></a>
+				<div class="dropdown-menu animated flipInY">
+					<!-- text-->
+					<a href="#" class="dropdown-item"><i class="ti-user"></i> My
+						Profile</a>
+					<!-- text-->
+					<a href="#" class="dropdown-item"><i class="ti-wallet"></i> My
+						Balance</a>
+					<!-- text-->
+					<a href="#" class="dropdown-item"><i class="ti-email"></i>
+						Inbox</a>
+					<!-- text-->
+					<div class="dropdown-divider"></div>
+					<!-- text-->
+					<a href="#" class="dropdown-item"><i class="ti-settings"></i>
+						Account Setting</a>
+					<!-- text-->
+					<div class="dropdown-divider"></div>
+					<!-- text-->
+					<a href="#{loginBean.dologout()}" class="dropdown-item"><i
+						class="fa fa-power-off"></i> Logout</a>
+					<!-- text-->
+				</div>
+			</div>
+		</div>
+		<!-- End User profile text-->
+		<!-- Sidebar navigation-->
+		<nav class="sidebar-nav">
+			<ul id="sidebarnav">
+				<li class="nav-devider"></li>
+				<li class="nav-small-cap">PERSONAL</li>
+				<li><a class="has-arrow waves-effect waves-dark" href="#"
+					aria-expanded="false"><i class="mdi mdi-gauge"></i><span
+						class="hide-menu">Dashboard <span
+							class="label label-rouded label-themecolor pull-right">4</span></span></a>
+					<ul aria-expanded="false" class="collapse">
+						<li><a href="index.html">Minimal </a></li>
+						<li><a href="index2.html">Analytical</a></li>
+						<li><a href="index3.html">Demographical</a></li>
+						<li><a href="http://localhost:18080/MapPi-web/stat.jsf">Projects</a></li>
+					</ul></li>
+				<li><a class="has-arrow waves-effect waves-dark" href="#"
+					aria-expanded="false"><i class="mdi mdi-bullseye"></i><span
+						class="hide-menu">Projects &amp; Customers</span></a>
+					<ul aria-expanded="false" class="collapse">
+						<li><a href="app-calendar.html">Manage Projects</a></li>
+						<li><a href="http://localhost:18080/MapPi-web/AfficheClient.jsf">Manage Customers</a></li>
+
+					</ul></li>
+				<li><a class="has-arrow waves-effect waves-dark" href='#'
+					aria-expanded="false"><i class="mdi mdi-email"></i><span
+						class="hide-menu">Claims</span></a>
+					<ul aria-expanded="false" class="collapse">
+
+					</ul></li>
+				<li><a class="has-arrow waves-effect waves-dark" href="#"
+					aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span
+						class="hide-menu">Mandate <span
+							class="label label-rouded label-danger pull-right">25</span></span></a>
+					<ul aria-expanded="false" class="collapse">
+						<li><a href="#">Mandate in progress</a></li>
+						<li><a href="#">Calender</a></li>
+						<li><a href="#">Mandates History</a></li>
+
+					</ul></li>
+				<li><a class="has-arrow waves-effect waves-dark" href="#"
+					aria-expanded="false"><i class="mdi mdi-file"></i><span
+						class="hide-menu">Offers</span></a>
+					<ul aria-expanded="false" class="collapse">
+						<li><a href="form-basic.html">List Offer</a></li>
+
+					</ul></li>
+				<li><a class="has-arrow waves-effect waves-dark" href="#"
+					aria-expanded="false"><i class="mdi mdi-table"></i><span
+						class="hide-menu">Resources</span></a></li>
+				<li><a class="has-arrow waves-effect waves-dark" href="#"
+					aria-expanded="false"><i class="mdi mdi-widgets"></i><span
+						class="hide-menu">JobRequests</span></a>
+					<ul aria-expanded="false" class="collapse">
+						<li><a href="widget-apps.html">List Jobs Requests</a></li>
+						<li><a
+							href="http://localhost:18080/MapPi-web/TemplateAdmin/offerByFolder.jsf">List
+								offers</a></li>
+					</ul></li>
+				<li><a class="has-arrow waves-effect waves-dark" href="#"
+					aria-expanded="false"><i class="mdi mdi-book-multiple"></i><span
+						class="hide-menu">Folder Immigration</span></a>
+					<ul aria-expanded="false" class="collapse">
+						<li><a
+							href="http://localhost:18080/MapPi-web/TemplateAdmin/JobRequestAssign.jsf">Job
+								Request Assigned</a></li>
+						<li><a
+							href="http://localhost:18080/MapPi-web/TemplateAdmin/DossierAccepte.jsf">Folder
+								Migration Accepted</a></li>
+					</ul></li>
+			</ul>
+		</nav>
+		<!-- End Sidebar navigation -->
+	</div>
+	<!-- End Sidebar scroll-->
+</aside>

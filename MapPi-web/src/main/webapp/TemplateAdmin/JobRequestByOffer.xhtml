@@ -1,0 +1,248 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/TemplateAdmin/TemplateA.xhtml">
+
+	<ui:define name="title">
+		<title>Jobs Requests</title>
+	</ui:define>
+
+	<ui:define name="temp">
+
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/bootstrap.min.css" />
+
+		<!-- JQUERY SELECT -->
+		<link
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/select2.min.css"
+			rel="stylesheet" />
+
+		<!-- JQUERY MENU -->
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/mega_menu.min.css" />
+
+		<!-- ANIMATION -->
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/animate.min.css" />
+
+		<!-- OWl  CAROUSEL-->
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/owl.carousel.css" />
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/owl.style.css" />
+
+		<!-- TEMPLATE CORE CSS -->
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/style.css" />
+
+		<!-- FONT AWESOME -->
+		<link rel="stylesheet" type="text/css"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/font-awesome.min.css" />
+		<link rel="stylesheet"
+			href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/css/et-line-fonts.css"
+			type="text/css" />
+
+		<!-- Google Fonts -->
+		<link
+			href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900,300"
+			rel="stylesheet" type="text/css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700"
+			rel="stylesheet" type="text/css" />
+
+		<!-- JavaScripts -->
+		<script
+			src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/modernizr.js"></script>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<section class="categories-list-page light-grey">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12 nopadding">
+
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<ui:repeat value="#{jobRequestBean.jobs}" var="item">
+
+								<div class="profile-content">
+									<div class="card">
+										<div class="firstinfo">
+											<img
+												src="http://localhost:18080/MapPi-web/TemplateAdmin/Content/users/12.jpg"
+												alt="" class="img-circle img-responsive" />
+											<div class="profileinfo">
+												<h1>
+													<a href="#"> #{item.user.firstname}
+														#{item.user.lastname} </a>
+												</h1>
+												<h3>#{item.speciality}</h3>
+												<p class="bio">#{item.user.email}</p>
+												<p class="bio">#{item.state}</p>
+
+												<div class="profile-skills" style="margin-left: 130px;">
+													<span> wordpress </span> <span> css3 </span> <span>
+														javascript </span> <span> php </span> <span> laravel </span> <span>
+														woocommerce </span>
+												</div>
+
+
+												<div class="hire-btn" style="top: 80px;">
+													<a href="http://localhost:18080/MapPi-web/TemplateAdmin/JobRequestAssign.jsf" class="btn-default">
+														<i class="fa fa-location-arrow"></i> Assign
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+							</ui:repeat>
+						</div>
+
+						<div class="col-md-4 col-sm-12 col-xs-12">
+							<aside>
+
+								<div class="widget">
+									<div class="widget-heading">
+										<span class="title">Latest Articles</span>
+									</div>
+									<ul class="related-post">
+										<li><a href="#">Assistant Manager Procurement </a> <span><i
+												class="fa fa-map-marker"></i>Managgo, WC </span> <span><i
+												class="fa fa-calendar"></i>March 22, 2015 </span></li>
+										<li><a href="#">Marketing Professionals Required</a> <span><i
+												class="fa fa-map-marker"></i>Homelando, New Vage </span> <span><i
+												class="fa fa-calendar"></i>Sep 01, 2015</span></li>
+										<li><a href="#">Mobile App Programmers </a> <span><i
+												class="fa fa-map-marker"></i>Homelando, New Vage </span> <span><i
+												class="fa fa-calendar"></i> - March 09, 2016 </span></li>
+										<li><a href="#">General Compliance Officer</a> <span><i
+												class="fa fa-map-marker"></i>Arlington, VA </span> <span><i
+												class="fa fa-calendar"></i>Feb 09, 2016</span></li>
+										<li><a href="#">Call Centre Manager</a> <span><i
+												class="fa fa-map-marker"></i>Managgo, WC </span> <span><i
+												class="fa fa-calendar"></i> March 09, 2016</span></li>
+										<li><a href="#">Assistant Manager Audit</a> <span><i
+												class="fa fa-map-marker"></i>Heling, WC </span> <span><i
+												class="fa fa-calendar"></i>Aug 01, 2015 - </span></li>
+										<li><a href="#">Telesales Agent (UK Dialing)</a> <span><i
+												class="fa fa-map-marker"></i>Somro, New </span> <span><i
+												class="fa fa-calendar"></i>Sep 01, 2015</span></li>
+										<li><a href="#">Assistant Brand Manager</a> <span><i
+												class="fa fa-map-marker"></i>Heritage, VA </span> <span><i
+												class="fa fa-calendar"></i>May 09, 2016</span></li>
+									</ul>
+								</div>
+
+							</aside>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<ui:define name="scrip">
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/jquery-3.1.1.min.js"></script>
+
+			<!-- JAVASCRIPT JS  -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/jquery-migrate-1.2.1.min.js"></script>
+
+			<!-- BOOTSTRAP CORE JS -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/bootstrap.min.js"></script>
+
+			<!-- JQUERY SELECT -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/select2.min.js"></script>
+			<!-- MEGA MENU -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/mega_menu.min.js"></script>
+
+
+
+			<!-- JQUERY COUNTERUP -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/counterup.js"></script>
+
+			<!-- JQUERY WAYPOINT -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/waypoints.min.js"></script>
+
+			<!-- JQUERY REVEAL -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/footer-reveal.min.js"></script>
+
+			<!-- Owl Carousel -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/owl-carousel.js"></script>
+
+			<!-- FOR THIS PAGE ONLY -->
+
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/imagesloaded.js"></script>
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/isotope.min.js"></script>
+
+			<!-- CORE JS -->
+			<script type="text/javascript"
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/custom.js"></script>
+
+			<script type="text/javascript">
+            (function($) {
+                "use strict";
+                $('#posts-masonry').imagesLoaded(function() {
+                    $('#posts-masonry').isotope({
+                        layoutMode: 'masonry',
+                        transitionDuration: '0.3s'
+                    });
+                });
+            })(jQuery);
+</script>
+
+
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/assets/plugins/jquery/jquery.min.js"></script>
+			<!-- Bootstrap tether Core JavaScript -->
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/assets/plugins/bootstrap/js/popper.min.js"></script>
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+			<!-- slimscrollbar scrollbar JavaScript -->
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/js/jquery.slimscroll.js"></script>
+			<!--Wave Effects -->
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/js/waves.js"></script>
+			<!--Menu sidebar -->
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/js/sidebarmenu.js"></script>
+			<!--stickey kit -->
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+			<!--Custom JavaScript -->
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/js/custom.min.js"></script>
+			<!-- ============================================================== -->
+			<!-- This page plugins -->
+			<!-- ============================================================== -->
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/js/jasny-bootstrap.js"></script>
+			<!-- ============================================================== -->
+			<!-- Style switcher -->
+			<!-- ============================================================== -->
+			<script
+				src="http://localhost:18080/MapPi-web/TemplateAdmin/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+
+		</ui:define>
+	</ui:define>
+</ui:composition>

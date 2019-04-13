@@ -1,0 +1,74 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/TemplateClient/TemplateC.xhtml">
+
+	<ui:define name="title">
+		<title>Login</title>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<div class="process-content">
+			<div class="container">
+
+
+				<h:form enctype="multipart/form-data"
+					style="width: 550px;margin-left: 250px;">
+					<p:panel id="panel" header="Sign In">
+
+						<p:messages id="msgs" />
+						<h:panelGrid columns="3" cellpadding="5">
+
+
+							<p:outputLabel for="firstname" value="Email" />
+							<p:inputText id="firstname" value="#{ministereBean.email}"
+								required="true" label="Firstname">
+								<f:validateLength minimum="2" />
+							</p:inputText>
+							<p:message for="firstname" display="icon" />
+
+
+							<p:outputLabel value="Image" />
+
+
+
+							<h:inputFile value="#{ministereBean.file}">
+								<f:ajax listener="#{ministereBean.uploadFile()}" />
+							</h:inputFile>
+						</h:panelGrid>
+
+						<div class="col-md-6" style="left: 20px;">
+							<p style="font-size: 15px; color: white;">
+								New Minister Account? <a
+									style="font-size: 18px; color: #346abb;"
+									href="http://localhost:18080/MapPi-web/TemplateClient/MinistereRegister.jsf">Sign
+									Up</a>
+							</p>
+						</div>
+
+
+						<div style="margin-left: 350px;">
+
+
+							<h:commandButton value="Login"
+								action="#{ministereBean.verifier()}"
+								style="left: 350px;width: 136px;height: 36px;"
+								icon="pi pi-check" />
+						</div>
+
+					</p:panel>
+
+				</h:form>
+
+			</div>
+
+		</div>
+
+
+
+	</ui:define>
+</ui:composition>

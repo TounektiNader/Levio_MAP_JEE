@@ -1,0 +1,96 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/TemplateClient/TemplateC.xhtml">
+
+	<ui:define name="content">
+
+		<div class="header-page-title clearfix">
+			<div class="title-overlay"></div>
+			<div class="container">
+				<div class="title-breadcrumb clearfix">
+					<h1>My Projects</h1>
+
+
+				</div>
+				<!-- end .title-breadcrumb -->
+			</div>
+			<!-- end .container -->
+		</div>
+		<div id="page-content" class="candidate-profile client-bg-color">
+			<div class="container">
+				<div class="page-content">
+					<div class="responsive-tabs dashboard-tabs">
+						<ui:repeat value="#{projectBean.listsPro}" var="item">
+							<div class="tab-content">
+								<div class="col-md-9">
+
+									<div class="candidate-description client-description"
+										style="left: 200px">
+
+										<div class="language-print client-des clearfix">
+											<div class="pull-left">
+												<h5>#{item.description}</h5>
+												<a href="#">#{item.state}</a>
+											</div>
+											<ul class="list-inline pull-right">
+												<li class="star-rating"><a href="#"><i
+														class="fa fa-star"></i></a></li>
+											</ul>
+										</div>
+										<!-- end .language-	print -->
+
+										<div class="candidate-details">
+											<p>#{item.description}</p>
+											<div class="toggle-content-client">
+
+
+
+
+
+
+												<div class="candidate-skills"></div>
+												<!-- end .candidate-skills -->
+
+
+												<!-- end .apply-share -->
+											</div>
+											<!-- end .toggle-content-client -->
+
+
+											<h:form>
+
+
+												<h:commandButton
+													action="#{profilBean.details(item.projectId)}"
+													value="lister les profils" class="btn btn-default" />
+													
+													<h:commandButton
+													action="#{profilBean.Listerprofil(item.projectId)}"
+													value="Ajout Profil" class="btn btn-default" />
+											</h:form>
+											
+											<!-- end .toggle-details -->
+											<!-- end .candidate-details -->
+
+										</div>
+
+
+
+									</div>
+
+
+								</div>
+
+							</div>
+						</ui:repeat>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

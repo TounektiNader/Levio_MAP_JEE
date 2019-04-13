@@ -1,0 +1,417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+	<script
+		src="http://localhost:18080/MapPi-web/TemplateAdmin/ContentB/js/modernizr.js"></script>
+
+	<link rel="stylesheet" type="text/css"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentV/fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
+	<script src="js/modernizr.custom.js"></script>
+	<link rel="stylesheet" type="text/css"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/ContentV/css/normalize.css" />
+	<link
+		href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600"
+		rel="stylesheet" />
+	<link rel="stylesheet"
+		href="http://localhost:18080/MapPi-web/TemplateClient/css/bootstrap.css" />
+	<link rel="stylesheet"
+		href="http://localhost:18080/MapPi-web/TemplateClient/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="http://localhost:18080/MapPi-web/TemplateClient/css/jquery.tagsinput.css" />
+	<link rel="stylesheet" type="text/css"
+		href="http://localhost:18080/MapPi-web/TemplateClient/css/owl.carousel.css" />
+	<link rel="stylesheet"
+		href="http://localhost:18080/MapPi-web/TemplateClient/css/styles.css" />
+	<link rel="stylesheet"
+		href="http://localhost:18080/MapPi-web/TemplateClient/css/responsive.css" />
+	<link href="../TemplateClient/assests/css/bootstrap.min.css"
+		rel="stylesheet"></link>
+	<link
+		href="../TemplateClient/assests/font-awesome/css/font-awesome.css"
+		rel="stylesheet"></link>
+	<link href="../TemplateClient/assests/css/sb-admin.css"
+		rel="stylesheet"></link>
+
+</h:head>
+
+
+<h:body>
+	<div id="wrapper">
+		<header id="header">
+		<div class="header-top-bar">
+
+			<!--
+          HEADER TOP BAR WITH NOTIFICATION FOR REGISTER USER
+          -->
+
+			<div class="header-notification-bar" style="display: none;">
+				<div class="register-user">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3 col-sm-3">
+								<div class="logo-section">
+									<a href="ContentC.jsf"><img
+										src="http://localhost:18080/MapPi-web/TemplateClient/img/levio.png"
+										alt="" /></a>
+								</div>
+							</div>
+
+							<div class="col-md-6 col-sm-5">
+								<div class="search-form">
+									<form action="#">
+										<button class="dropdown-search">
+											<i class="fa fa-caret-down"></i> <i class="fa fa-bars"></i>
+										</button>
+										<input type="search" placeholder="Search..."
+											class="topbar-search-input" />
+										<button class="search-button">
+											<i class="fa fa-search"></i>
+										</button>
+									</form>
+
+								</div>
+							</div>
+
+							<div class="col-md-3 col-sm-4">
+								<div class="notification-section text-right">
+									<ul class="list-inline">
+										<li><a href="#"><i class="fa fa-envelope-o"></i></a><span
+											class="new-notification">3</span></li>
+										<li><a href="#"><i class="fa fa-bell-o"></i></a><span
+											class="new-notification">3</span></li>
+										<li class="user-profile-pic"><a href="#"><img
+												src="http://localhost:18080/MapPi-web/TemplateClient/img/content/agent-img-1.jpg"
+												alt="" /></a></li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+						<!-- end .row -->
+					</div>
+					<!-- end .container -->
+				</div>
+				<!-- end .register-user -->
+			</div>
+			<!-- end. header-notification-bar  -->
+
+			<!--
+          END HEADER NOTIFICATION TOP BAR
+          -->
+
+			<!--
+          HEADER TOP BAR FOR NON REGISTER USER
+          -->
+
+			<div class="header-notification-bar">
+				<div class="non-register-user">
+
+					<div class="container" style="background: rgba(255, 255, 255, 0);">
+						<div class="row">
+
+							<div class="col-md-3 col-sm-3">
+								<div class="logo-section">
+									<a href="ContentC.jsf"><img
+										src="http://localhost:18080/MapPi-web/TemplateClient/img/levio.png"
+										alt="" /></a>
+								</div>
+							</div>
+
+							<div class="col-md-6 col-sm-5">
+								<div class="search-form">
+
+									<form action="#">
+										<button class="dropdown-search">
+											<i class="fa fa-caret-down"></i> <i class="fa fa-bars"></i>
+										</button>
+										<input type="search" placeholder="Search..."
+											class="topbar-search-input" />
+										<button class="search-button">
+											<i class="fa fa-search"></i>
+										</button>
+									</form>
+
+								</div>
+							</div>
+
+							<div class="col-md-3 col-sm-4">
+								<div class="notification-section text-right">
+
+									<ul class="list-inline">
+
+										<c:choose>
+											<c:when test="#{ministereBean.loggedIn==false}">
+												<li><a
+													href="http://localhost:18080/MapPi-web/TemplateClient/MinistereLogin.jsf">Login</a></li>
+												<li><a
+													href="http://localhost:18080/MapPi-web/TemplateClient/MinistereRegister.jsf">Register</a></li>
+											</c:when>
+											<c:otherwise>
+												<li><a href="#">#{ministereBean.email}</a></li>
+												<li><a href="#{ministereBean.dologout()}">Log Out</a></li>
+											</c:otherwise>
+										</c:choose>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+						<!-- end .row -->
+					</div>
+					<!-- end .container -->
+				</div>
+				<!-- end .visitors-top-bar -->
+			</div>
+			<!-- end. header-notification-bar  -->
+
+
+			<!--
+          END HEADER TOP BAR FOR WITHOUT LOGIN USER
+          -->
+
+			<!-- Navigation -->
+			<div class="main-navbar">
+
+				<nav class="navbar navbar-default">
+				<div class="container" style="background: rgba(255, 255, 255, 0);">
+
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="ContentC.jsf"><img
+							src="http://localhost:18080/MapPi-web/TemplateClient/img/levio.png"
+							alt="" /></a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1" style="margin-left: 450px;">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="ContentC.jsf">Home</a></li>
+							<li><c:choose>
+									<c:when test="#{loginBean.loggedIn==false}">
+										<a
+											href="http://localhost:18080/MapPi-web/TemplateClient/GestionDossier.jsf">Manage
+											Folder Immigration</a>
+									</c:when>
+									<c:otherwise>
+										<a
+											href="http://localhost:18080/MapPi-web/TemplateClient/MinistereLogin.jsf">Manage
+											Folder Immigration</a>
+									</c:otherwise>
+								</c:choose></li>
+							<!-- <li><a href="#">Blog</a></li> -->
+							<li><a href="contact-us.html">Contact</a></li>
+						</ul>
+
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container --> </nav>
+			</div>
+			<!-- main-navbar -->
+			<!-- end .header-top-bar -->
+		</div>
+
+		</header>
+
+
+		<div id="page-content">
+			<div class="index-page-search-content">
+
+				<h:form id="f1">
+					<p:messages autoUpdate="true" showDetail="true"></p:messages>
+
+
+					<p:dataTable value="#{gdossierBean.listDossiers}" var="ben"
+						id="tab">
+
+
+
+
+						<p:column headerText="Email">
+							<h:outputText value="#{ben.email}" />
+						</p:column>
+
+						<p:column headerText="Firstname">
+							<h:outputText value="#{ben.firstName}" />
+						</p:column>
+
+						<p:column headerText="LastName ">
+							<h:outputText value="#{ben.lastName}" />
+						</p:column>
+
+						<p:column headerText="Country">
+							<h:outputText value="#{ben.pays}" />
+						</p:column>
+						<p:column headerText="Statut">
+							<h:outputText value="#{ben.statut}" />
+						</p:column>
+
+
+						<p:column headerText="Adress">
+							<h:outputText value="#{ben.address}" />
+						</p:column>
+
+
+						<p:column headerText="Motivation">
+							<h:outputText value="#{ben.motivation}" />
+						</p:column>
+
+
+						<p:column headerText="Step Folder">
+							<h:outputText value="#{ben.etape}" />
+						</p:column>
+
+
+						<p:column headerText="Etat Folder">
+							<h:outputText value="#{ben.etat}" />
+						</p:column>
+
+
+						<p:column headerText="Attachment">
+							<h:commandButton value="List Attachment"
+								action="#{attachmentBean.getAttachments(ben.id)}" update="tab"
+								class="btn btn-info"
+								style="width: 150px;padding-left: 5px;margin-right: 100px;padding-right: 35px;">
+							</h:commandButton>
+						</p:column>
+
+
+
+						<p:column headerText="Interview">
+							<h:commandButton value="Start"
+								action="#{gdossierBean.doInterview()}" update="tab"
+								class="btn btn-info" style="width: 106px;">
+
+							</h:commandButton>
+						</p:column>
+
+
+
+
+						<p:column headerText="Action">
+							<p:commandButton value="Remove"
+								action="#{gdossierBean.supprimer()}" update="tab">
+								<f:setPropertyActionListener value="#{ben}"
+									target="#{gdossierBean.dossier}" />
+								<p:confirm header="Confirmation"
+									message="Voulez vous supprimez ??" icon="ui-icon-alert" />
+
+							</p:commandButton>
+							<br></br>
+							<br></br>
+							<p:commandButton value="Update" onclick="PF('dlg3').show();"
+								update=":f1:panel" action="#{gdossierBean.clickEdit()}">
+								<f:setPropertyActionListener value="#{ben}"
+									target="#{gdossierBean.dossier}" />
+
+							</p:commandButton>
+
+						</p:column>
+
+
+
+
+
+					</p:dataTable>
+					<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+						<p:commandButton value="Oui" type="button"
+							styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+						<p:commandButton value="Non" type="button"
+							styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+					</p:confirmDialog>
+
+					<p:dialog header="Effects" widgetVar="dlg3" showEffect="explode"
+						hideEffect="bounce" modal="true">
+
+						<p:panelGrid columns="2" id="panel">
+
+
+							<h:outputText value="Id Folder" />
+							<p:inputText value="#{gdossierBean.dossier.id}"
+								readonly="#{gdossierBean.read}" />
+
+							<h:outputText value="Email" />
+							<p:inputText value="#{gdossierBean.dossier.email}"
+								readonly="#{gdossierBean.read}" />
+
+
+							<h:outputText value="FirstName" />
+							<p:inputText value="#{gdossierBean.dossier.firstName}" />
+
+
+							<h:outputText value="LastName" />
+							<p:inputText value="#{gdossierBean.dossier.lastName}" />
+
+
+							<h:outputText value="Etat Folder" />
+
+							<p:selectOneRadio value="#{gdossierBean.dossier.etat}">
+
+								<f:selectItem itemLabel="Accepted" itemValue="Accepted" />
+								<f:selectItem itemLabel="Rejected" itemValue="Rejected" />
+								<f:selectItem itemLabel="BeingProcessed"
+									itemValue="BeingProcessed" />
+
+							</p:selectOneRadio>
+
+
+
+							<h:outputText value="Step Folder" />
+
+							<h:selectOneMenu value="#{gdossierBean.dossier.etape}">
+
+								<f:selectItem itemLabel="Selection Etape" itemValue="" />
+
+								<f:selectItems value="#{gdossierBean.etapeDossiers()}">
+
+								</f:selectItems>
+							</h:selectOneMenu>
+
+
+
+
+							<p:commandButton value="ajouter"
+								action="#{dossierBean.ajoutFolder()}" update="tab"
+								onclick="PF('dlg3').hide();" rendered="#{gdossierBean.btnadd}" />
+
+							<p:commandButton value="Update"
+								action="#{gdossierBean.updaetDossier()}" update="tab"
+								onclick="PF('dlg3').hide();" rendered="#{gdossierBean.btnedit}">
+								<p:confirm header="Confirmation"
+									message="Voulez vous sauvgarder votre Changement ??"
+									icon="ui-icon-alert" />
+
+							</p:commandButton>
+
+							<p:commandButton value="Annuler" onclick="PF('dlg3').hide();"></p:commandButton>
+
+						</p:panelGrid>
+
+					</p:dialog>
+
+
+
+
+				</h:form>
+			</div>
+		</div>
+		<ui:insert name="FooterC"></ui:insert>
+		<ui:include src="../TemplateClient/FooterC.xhtml" />
+	</div>
+</h:body>
+
+</html>

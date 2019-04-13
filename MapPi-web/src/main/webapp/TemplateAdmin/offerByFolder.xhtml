@@ -1,0 +1,177 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/TemplateAdmin/TemplateA.xhtml">
+
+
+
+	<ui:define name="title">
+		<title>Login</title>
+	</ui:define>
+
+
+
+
+	<ui:define name="content">
+
+
+		<div class="row page-titles">
+			<div class="col-md-5 align-self-center">
+				<h3 class="text-themecolor">Offers</h3>
+			</div>
+			<div class="col-md-7 align-self-center">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+					<li class="breadcrumb-item">Offers</li>
+					<li class="breadcrumb-item active">Lists</li>
+				</ol>
+			</div>
+
+		</div>
+
+		<div class="container-fluid">
+			<!-- ============================================================== -->
+			<!-- Start Page Content -->
+			<!-- ============================================================== -->
+			<div class="row">
+				<!-- column -->
+
+
+				<div class="col-12">
+					<div class="card">
+						<div class="card-body">
+							<h4 class="card-title">Table Of Offers</h4>
+
+
+
+
+
+							<div class="col-md-12">
+								<div class="main-content" id="add-client"></div>
+								<!-- end .view-sort div -->
+
+								<div class="table-responsive-small">
+
+									<div class="editing-link">
+
+
+										<div class="search-content">
+
+
+											<div class="input-group">
+												<span class="input-group-addon"><i
+													class="fa fa-search"></i></span> <input type="text" id="Search"
+													placeholder="Search" class="form-control" />
+
+											</div>
+
+										</div>
+
+
+
+									</div>
+									<!-- end .editing-link -->
+
+									<div class="clients-list">
+
+										<div class="table-heading">
+											<div class="css-table">
+
+												<div class="table-details css-table-cell">
+													<h5>Offers</h5>
+												</div>
+
+												<div class="clients-job css-table-cell">
+													<h5>Requests</h5>
+												</div>
+
+											</div>
+											<!-- end .css-table -->
+										</div>
+										<!-- end .table-heading -->
+										<ui:repeat value="#{offersBean.offers}" var="item">
+
+
+
+											<div class="Search">
+												<div class="clients-job-single">
+													<div class="css-table">
+
+
+														<div class="company-logo-area css-table-cell">
+															<img
+																src="http://localhost:18080/MapPi-web/TemplateAdmin/Content/img/levio.png"
+																alt="" />
+														</div>
+														<!-- end .company-logo-area -->
+
+														<div class="table-details css-table-cell">
+
+															<div class="company-name">
+																<h4>
+																	<a href="#">#{item.jobType}</a>
+																</h4>
+															</div>
+															<!-- end .company-name -->
+
+															<div class="company-description">
+																<h4>
+																	<a href="#">#{item.jobExperience}</a>
+																</h4>
+															</div>
+															<!-- end .job-description -->
+
+															<div class="job-location-stat">
+															<div hidden="true"></div>
+																<p>
+																	<a href="#"><i class="fa fa-map-marker"></i>#{item.jobDescription}</a>
+																</p>
+
+																<ul class="list-inline pull-right">
+																	<li>Expected Salary: <strong>$
+																			#{item.expectedSalary}</strong></li>
+																	<li>Experience: <strong>#{item.jobExperience}</strong></li>
+																	<li>Requirement: <strong>#{item.jobRequirements}</strong></li>
+																</ul>
+															</div>
+															<!-- end .job-location-stat -->
+														</div>
+														<!-- end .table-details -->
+
+														<div class="clients-job css-table-cell">
+															<h4>-
+																<a
+																	href="#{jobRequestBean.doJobRequest(item.offerId)}">#{item.postedOn}
+																	<span>See Jobs<i class="fa fa-external-link"></i></span>
+																</a>
+															</h4>
+														</div>
+														<!-- end .days-left -->
+
+													</div>
+													<!-- end .css-table -->
+												</div>
+												<!-- end .clients-job-single -->
+											</div>
+
+
+
+										</ui:repeat>
+									</div>
+
+									<!-- end .row -->
+								</div>
+								<!-- end container -->
+							</div>
+							<!-- end .page-content -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

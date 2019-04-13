@@ -1,0 +1,144 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/TemplateAdmin/TemplateA.xhtml">
+
+
+	<ui:define name="content">
+<div id="HTMLtoPDF">
+	  <div class="container-fluid">
+	   <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-6">
+                        <div class="card">
+                           
+                        </div>
+                    </div>
+                   
+                    <!-- column -->
+                    
+                    <!-- column -->
+                   
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title" align="center">Our Clients </h4>
+                               
+                                 <h:form>
+                                  <div class="fc-toolbar fc-header-toolbar">
+                                <div class="fc-right">
+                                <div class="fc-button-group">
+                                                  <h:commandButton value="Download" onclick="HTMLtoPDF()" class="fc-agendaDay-button fc-button fc-state-default fc-corner-right fc-state-active"/>
+                                                       </div>
+                                                    </div>
+                                                    </div>
+                                                    </h:form>
+                                                
+                                <div class="table-responsive">
+                                    <h:dataTable class="table"  value="#{customerBean.GetAllClients()}" var="d">
+                                        <thead>
+                                            <tr>
+                                                
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Address</th>
+                                                <th>Description</th>
+                                                <th>Speciality</th>
+                                                <th>Category</th>
+                                                <th>Type</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                              
+										
+										
+                                                <p:column>
+                                               <f:facet name="header">
+												 <p:outputLabel value="First Name"/>
+										</f:facet>
+										<p:outputLabel value="#{d.firstname}"/>
+										</p:column>
+										
+										 <p:column>
+                                               <f:facet name="header">
+												 <p:outputLabel value="Last Name"/>
+										</f:facet>
+										<p:outputLabel value="#{d.lastname}"/>
+										</p:column>
+										
+										<p:column>
+                                               <f:facet name="header">
+												 <p:outputLabel value="Address"/>
+										</f:facet>
+										<p:outputLabel value="#{d.address}"/>
+										</p:column>
+										
+										<p:column>
+                                               <f:facet name="header">
+												 <p:outputLabel value="description"/>
+										</f:facet>
+										<p:outputLabel value="#{d.description}"/>
+										</p:column>
+										
+										
+										  <p:column>
+                                                  <f:facet name="header">
+												<p:outputLabel value="Speciality"/>
+												</f:facet>
+                                                <span class="text-muted"> 
+                                                
+                                                 <p:outputLabel value="#{d.speciality}"/>
+                                                </span> 
+                                                </p:column>
+                                                
+                                                
+                                                
+                                                
+                                                <p:column>
+                                                  <f:facet name="header">
+												<p:outputLabel value="Category"/>
+												</f:facet>
+                                                    <div class="label label-table label-success">
+                                                     <p:outputLabel value="#{d.category}"/>
+                                               
+                                                    </div>
+                                              
+                                                </p:column>
+                                                 <p:column>
+                                                  <f:facet name="header">
+												<p:outputLabel value="Type"/>
+												</f:facet>
+                                                    <div class="label label-table label-danger">
+                                                     <p:outputLabel value="#{d.type}"/>
+                                                    
+                                                    </div>
+                                               
+                                                </p:column>
+                                                
+                                               
+                                            </tr>
+                                           
+                                           
+                                        </tbody>
+                                   </h:dataTable>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                   </div>
+                   </div>
+                   
+   <script src="jquery-2.1.3.js"></script> 
+  <script src="jspdf.js"></script> 
+ <script src="pdfFromHTML.js"></script> 
+	      </ui:define>
+	  
+	     </ui:composition>    
+	    

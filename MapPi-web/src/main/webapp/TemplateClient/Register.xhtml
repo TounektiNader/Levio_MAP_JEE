@@ -1,0 +1,116 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/TemplateClient/TemplateC.xhtml">
+
+	<ui:define name="title">
+		<title>Register</title>
+	</ui:define>
+
+	<ui:define name="content">
+		<div class="process-content">
+			<div class="container">
+
+				<!-- SIgn Up -->
+				<div class="moti-sign">
+					<h3>Sign Up for Levio</h3>
+					<div class="form-sec">
+						<div class="process-num">
+
+							<!-- Account SetUp -->
+							<ul>
+								<li class="current">
+									<p>
+										<span>1</span>Account Info
+									</p>
+								</li>
+								<li>
+									<p>
+										<span>2</span>Confirm your Email
+									</p>
+								</li>
+								<li>
+									<p>
+										<span>3</span>Choose your Plan
+									</p>
+								</li>
+								<li>
+									<p>
+										<span>4</span>Account Complete
+									</p>
+								</li>
+							</ul>
+						</div>
+
+						<!-- Sign Up Form -->
+						<h:form>
+							<p:messages id="msgs" />
+
+							<ul class="row">
+
+								<li class="col-md-6"><p:inputText placeholder="First Name"
+										id="firstname" value="#{loginBean.firstname}" required="true"
+										label="Firstname"
+										validatorMessage="Vous Devez Remplir le champ">
+
+									</p:inputText></li>
+
+								<li class="col-md-6"><p:inputText placeholder="Last Name"
+										id="lastname" value="#{loginBean.lastname}" required="true">
+
+									</p:inputText></li>
+
+								<li class="col-md-12"><p:inputText type="email"
+										placeholder="Email" value="#{loginBean.login}" id="login"
+										required="true" requiredMessage="Vous Devez Remplir ce champ"></p:inputText>
+								</li>
+								<li class="col-md-6"><h:inputText id="pwd" type="password"
+										placeholder="Password" value="#{loginBean.password}"
+										required="true" requiredMessage="Vous Devez Remplir ce champ">
+									</h:inputText></li>
+
+
+
+
+								<li class="col-md-6"><p:inputText
+										placeholder="Confirm Password"
+										value="#{loginBean.confirmPassword}" class="form-control" /></li>
+
+								<li class="col-md-12"><p:inputTextarea
+										placeholder="Address" value="#{loginBean.address}" /></li>
+
+
+								<li class="col-md-12"><p:inputText type="number"
+										placeholder="Telephone" value="#{loginBean.phoneNumber}" /></li>
+
+								<h:outputText value="Type Accout" />
+								<h:selectOneMenu value="#{loginBean.cv}">
+
+									<f:selectItem itemLabel="Selection le role" itemValue="" />
+
+									<f:selectItems value="#{loginBean.roles}">
+
+									</f:selectItems>
+								</h:selectOneMenu>
+
+
+								<li class="col-md-6">
+									<p>
+										Already a member? <a href="#.">Sign In</a>
+									</p>
+								</li>
+								<p:commandButton value="Register"
+									action="#{loginBean.doRegister()}"
+									style="left: 190px;top: 60px;" icon="pi pi-check" />
+							</ul>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

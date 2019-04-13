@@ -1,0 +1,76 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/TemplateClient/TemplateC.xhtml">
+
+	<ui:define name="title">
+		<title>Register</title>
+	</ui:define>
+
+	<ui:define name="content">
+		<div class="process-content">
+			<div class="container">
+
+				<!-- SIgn Up -->
+				<div class="moti-sign">
+					<h3>Sign Up for Levio</h3>
+					<div class="form-sec">
+						<div class="process-num">
+
+							<!-- Account SetUp -->
+							<ul>
+								<li class="current">
+									<p>
+										<span>1</span>Account Info
+									</p>
+								</li>
+							</ul>
+						</div>
+
+						<!-- Sign Up Form -->
+						<h:form>
+							<p:messages id="msgs" />
+
+							<ul class="row">
+								<li class="col-md-12"><p:inputText type="email"
+										placeholder="Email" value="#{ministereBean.ministere.email}"
+										id="mail" required="true"
+										requiredMessage="Vous Devez Remplir ce champ"></p:inputText></li>
+
+								<li class="col-md-12"><label>Country: <span
+										class="required">*</span></label> <h:selectOneMenu
+										value="#{ministereBean.ministere.pays}">
+
+										<f:selectItem itemLabel="Selection Votre Pays" itemValue="" />
+
+										<f:selectItems value="#{ministereBean.ListOfCountry()}">
+
+										</f:selectItems>
+									</h:selectOneMenu></li>
+
+
+
+
+
+								<li class="col-md-6">
+									<p>
+										Already a member? <a
+											href="http://localhost:18080/MapPi-web/TemplateClient/MinistereLogin.jsf">Sign
+											In</a>
+									</p>
+								</li>
+								<p:commandButton value="Register"
+									action="#{ministereBean.doRegister()}"
+									style="left: 190px;top: 60px;" icon="pi pi-check" />
+							</ul>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

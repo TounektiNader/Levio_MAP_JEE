@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="MapPi-ejb">
+		<jta-data-source>java:/MySqlDS</jta-data-source>
+		<class>Entity.Answer</class>
+		<class>Entity.AspNetUserRole</class>
+		<class>Entity.AspNetUserRolePK</class>
+		<class>Entity.Attachment</class>
+		<class>Entity.Availibility</class>
+		<class>Entity.Claim</class>
+		<class>Entity.CustomRole</class>
+		<class>Entity.CustomUserClaim</class>
+		<class>Entity.CustomUserLogin</class>
+		<class>Entity.CustomUserRole</class>
+		<class>Entity.Event</class>
+		<class>Entity.Folder</class>
+		<class>Entity.Message</class>
+		<class>Entity.OfferJob</class>
+		<class>Entity.Profil</class>
+		<class>Entity.Project</class>		
+		<class>Entity.Skill</class>
+		<class>Entity.Test</class>
+		<class>Entity.User</class>
+		<class>Entity.JobRequest</class>
+		<class>Entity.Mandate</class>
+		<class>Entity.MandatePK</class>
+	
+
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>					
+		</properties>
+	</persistence-unit>
+</persistence>

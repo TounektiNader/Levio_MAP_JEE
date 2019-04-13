@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<link
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/bootstrap/css/bootstrap.min.css"
+		rel="stylesheet" />
+
+	<link
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/plugins/morrisjs/morris.css"
+		rel="stylesheet" />
+
+	<link
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/css/style.css"
+		rel="stylesheet" />
+
+	<link
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/css/colors/blue.css"
+		id="theme" rel="stylesheet" />
+
+	<link rel="stylesheet"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/bootstrap.css" />
+	<link rel="stylesheet"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/jquery.tagsinput.css" />
+	<link rel="stylesheet" type="text/css"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/owl.carousel.css" />
+	<link rel="stylesheet"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/styles.css" />
+	<link rel="stylesheet"
+		href="http://localhost:18080/MapPi-web/TemplateAdmin/Content/css/responsive.css" />
+
+	<script type="text/javascript">
+    function handleDrop(event, ui) {
+        var droppedCar = ui.draggable;
+ 
+        droppedCar.fadeOut('fast');
+    }
+</script>
+</h:head>
+<h:body>
+	<div id="wrapper">
+		 <ui:insert name="Hearder"></ui:insert>
+	<!-- 	<ui:include src="../TemplateAdmin/Hearder.xhtml" /> -->
+ 
+
+		<ui:insert name="Menu"></ui:insert>
+		<ui:include src="../TemplateAdmin/Menu.xhtml" />
+	</div>
+	<div class="page-wrapper">
+
+		<h:form id="carForm">
+			<p:fieldset id="availableCarsField" legend="Jobs Request Assigned">
+				<p:dataTable id="availableCars" var="car"
+					value="#{requestassignBean.jobs}">
+					<p:column style="width:20px">
+						<h:outputText id="dragIcon" styleClass="ui-icon pi pi-plus" />
+						<p:draggable for="dragIcon" revert="true" helper="clone" />
+					</p:column>
+
+					<p:column headerText="Id Job Request">
+						<h:outputText value="#{car.jobRequestId}" />
+					</p:column>
+
+					<p:column headerText="Email">
+						<h:outputText value="#{car.user.email}" />
+					</p:column>
+
+					<p:column headerText="Speciality">
+						<h:outputText value="#{car.speciality}" />
+					</p:column>
+
+					<p:column headerText="State">
+						<h:outputText value="#{car.state}" />
+					</p:column>
+				</p:dataTable>
+			</p:fieldset>
+
+			<p:fieldset id="selectedCars" legend="Selected Job Request"
+				style="margin-top:20px">
+				<p:outputPanel id="dropArea">
+					<h:outputText value="Drop Here ..."
+						rendered="#{empty requestassignBean.droppedCars}"
+						style="font-size:24px;" />
+					<p:dataTable id="selectedCarsTable" var="car"
+						value="#{requestassignBean.droppedCars}"
+						rendered="#{not empty requestassignBean.droppedCars}">
+						<p:column headerText="Speciality">
+							<h:outputText value="#{car.speciality}" />
+						</p:column>
+
+						<p:column headerText="State">
+							<h:outputText value="#{car.state}" />
+						</p:column>
+
+						<p:column headerText="FirstName">
+							<h:outputText value="#{car.user.firstname}" />
+						</p:column>
+
+						<p:column headerText="Last Name">
+							<h:outputText value="#{car.user.lastname}" />
+						</p:column>
+
+						<p:column style="width:32px">
+							<p:commandButton update=":carForm:display"
+								oncomplete="PF('carDialog').show()" icon="pi pi-search">
+								<f:setPropertyActionListener value="#{car}"
+									target="#{requestassignBean.selectedCar}" />
+							</p:commandButton>
+						</p:column>
+					</p:dataTable>
+				</p:outputPanel>
+			</p:fieldset>
+
+			<p:droppable for="selectedCars" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="availableCars"
+				onDrop="handleDrop">
+				<p:ajax listener="#{requestassignBean.onCarDrop}"
+					update="dropArea availableCars" />
+			</p:droppable>
+
+			<p:dialog header="Folder Detail" widgetVar="carDialog"
+				resizable="false" draggable="false" showEffect="fade"
+				hideEffect="fade" modal="true">
+
+				<p:outputPanel id="display">
+					<h:panelGrid columns="2" cellpadding="4"
+						rendered="#{not empty requestassignBean.selectedCar}">
+						<f:facet name="header">
+						</f:facet>
+
+						<h:outputText value="Speciality:" />
+						<h:outputText value="#{requestassignBean.selectedCar.speciality}"
+							style="font-weight:bold" />
+
+						<h:outputText value="State:" />
+						<h:outputText value="#{requestassignBean.selectedCar.state}"
+							style="font-weight:bold" />
+
+						<h:outputText value="FirstName:" />
+						<h:outputText
+							value="#{requestassignBean.selectedCar.user.firstname}"
+							style="font-weight:bold" />
+
+						<h:outputText value="LastName :" />
+						<h:outputText
+							value="#{requestassignBean.selectedCar.user.lastname}"
+							style="font-weight:bold" />
+					</h:panelGrid>
+				</p:outputPanel>
+			</p:dialog>
+		</h:form>
+	</div>
+</h:body>
+</html>

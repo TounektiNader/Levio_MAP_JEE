@@ -1,0 +1,159 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/TemplateClient/TemplateC.xhtml">
+
+	<ui:define name="content">
+		<h:body>
+
+			<div class="header-page-title job-registration clearfix">
+				<div class="title-overlay"></div>
+				<div class="container">
+					<h1>Job Registration</h1>
+
+					<ol class="breadcrumb">
+						<li><a href="#">Home</a></li>
+						<li class="active">Job Registration</li>
+					</ol>
+
+				</div>
+				<!-- end .container -->
+
+			</div>
+
+
+			<div id="page-content" class="job-registration full-width">
+				<div class="container">
+					<div class="page-content">
+						<div class="table-responsive">
+
+							<div class="form-banner-button  mt50 mb20">
+
+								<div class="css-table">
+									<div class="registration-detail css-table-cell">
+										<div class="pull-left">
+											<p>Job Information</p>
+										</div>
+
+										<div class="language pl30 pull-right">
+											<div class="language-select pull-left">
+												<select>
+													<option value="#">EN</option>
+													<option value="#">FR</option>
+													<option value="#">IT</option>
+													<option value="#">DE</option>
+												</select>
+											</div>
+											<!-- end .language-select -->
+
+											<a class="btn btn-default pull-left ml5" href="#">Add
+												Language</a>
+										</div>
+										<!-- end .language -->
+
+										<div class="preview-import pull-right">
+											<a class="btn btn-green" href="ProjectClient.jsf">Refresh</a> <a
+												class="btn btn-default ml3" href="#"><i
+												class="fa fa-linkedin-square"></i>Import Data from LinkedIn</a>
+										</div>
+										<!-- end .preview-import -->
+
+									</div>
+									<!-- job-details -->
+
+									<div class="checkbox-content css-table-cell">
+										<p>Private</p>
+									</div>
+								</div>
+								<!-- end .css-table -->
+
+
+							</div>
+							
+							<!-- end .form-banner-button -->
+
+							<!-- start main form content -->
+
+							
+
+
+
+									<h:form >
+								
+										
+                  <div class="css-table">
+											<div class="job-regi-single">
+												<div class="css-table-cell">
+                      <label><span>*</span>NB Experience</label>
+                    </div>
+
+                    <div class="registration-detail css-table-cell">
+                      <h:inputText value="#{profilBean.experience}"/>
+
+											</div>
+											</div>
+											</div>
+
+
+											 <div class="css-table">
+											<div class="job-regi-single">
+												<div class="css-table-cell">
+                      <label><span>*</span>Speciality</label>
+                    </div>
+
+                    <div class="registration-detail css-table-cell">
+                      <h:inputText value="#{profilBean.speciality}"/>
+
+											</div>
+											</div>
+											</div>
+
+
+											<h:commandButton action="#{profilBean.addProfil()}"
+												value="Ajouter profil" />
+										
+
+                          
+
+
+									</h:form>
+
+
+
+
+								</div>
+							</div>
+						
+						</div>
+
+					</div>
+					
+					<!-- end .page-content -->
+				
+		</h:body>
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
